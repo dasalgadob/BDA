@@ -1,12 +1,14 @@
 use dw_sakila;
 
+
+drop procedure if exists fill_tables_dimension;
 delimiter $$
 CREATE procedure `fill_tables_dimension` ()
 BEGIN
 	
 insert into dw_sakila.dim_customer
-select c.customer_id, c.store_id, first_name, last_name, email, case when active = 1 then "Yes" else "No" end as active, create_date,  c.last_update , city.city, country.country, a.address,
-a.postal_code  
+select c.customer_id, c.store_id, first_name, last_name, email, case when active = 1 then "Yes" else "No" end as active, create_date,  c.last_update 
+ , city.city, country.country, a.address, a.postal_code  
 from sakila.customer as c 
 join sakila.address as a using (address_id)
 join sakila.city using (city_id)
@@ -37,4 +39,4 @@ END $$
 delimiter ;
 
 
--- call test_p();
+-- call fill_tables_dimension();
