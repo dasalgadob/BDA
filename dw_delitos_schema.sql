@@ -14,7 +14,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema dw_delitos
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `dw_delitos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+DROP SCHEMA `dw_delitos`;
+CREATE SCHEMA IF NOT EXISTS `dw_delitos`;
 USE `dw_delitos` ;
 
 -- -----------------------------------------------------
@@ -40,9 +41,7 @@ CREATE TABLE IF NOT EXISTS `dw_delitos`.`d_date` (
   `month_in_dimension` DOUBLE NULL DEFAULT NULL,
   `day_in_year` DOUBLE NULL DEFAULT NULL,
   PRIMARY KEY (`id_date`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
